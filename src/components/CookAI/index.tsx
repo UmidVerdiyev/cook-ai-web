@@ -13,7 +13,7 @@ const CookAI: React.FC = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
     // Change this to switch themes: 'orange-red', 'blue-purple', 'green-teal'
-    const currentTheme = themes['orange-red'];
+    const currentTheme = themes['blue-tech'];
     const commonStyles = getCommonStyles(currentTheme);
 
     useEffect(() => {

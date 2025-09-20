@@ -1,8 +1,9 @@
 import React from "react";
-import { ChefHat, Menu, X } from "lucide-react";
+import {ChefHat, Image, Menu, X} from "lucide-react";
 import { ColorTheme } from "../../../themes/colors";
 import { getNavigationStyles } from "../../../themes/styles/navigation";
 import NavLink from "./NavLink";
+import CookAiLogo from "../../../images/log.png";
 
 interface NavigationProps {
     theme: ColorTheme;
@@ -28,13 +29,19 @@ const Navigation: React.FC<NavigationProps> = ({
             <div style={styles.navContainer}>
                 <div style={styles.logo}>
                     <div style={styles.logoIcon}>
-                        <ChefHat size={24} />
+                        <img src={CookAiLogo} alt="Cook AI Logo"
+                             style={{
+                                 width: "48px",
+                                 height: "48px",
+                                 objectFit: "contain",
+                                 borderRadius: "12px"
+                             }}
+                        />
                     </div>
                     <span style={styles.logoText}>Cook AI</span>
                 </div>
-
                 {/* Desktop Navigation */}
-                <div style={!isMobile ? styles.navLinks : { display: "none" }}>
+                <div style={!isMobile ? styles.navLinks : {display: "none"}}>
                     <NavLink
                         href="#home"
                         isActive={activeSection === "home"}
@@ -77,7 +84,7 @@ const Navigation: React.FC<NavigationProps> = ({
                 {/* Mobile Menu Button */}
                 <button
                     onClick={onMenuToggle}
-                    style={isMobile ? styles.mobileMenuBtn : { display: "none" }}
+                    style={isMobile ? styles.mobileMenuBtn : {display: "none"}}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.background = "#f3f4f6";
                     }}
@@ -85,7 +92,7 @@ const Navigation: React.FC<NavigationProps> = ({
                         e.currentTarget.style.background = "transparent";
                     }}
                 >
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isMenuOpen ? <X size={24}/> : <Menu size={24}/>}
                 </button>
             </div>
 
