@@ -1,3 +1,4 @@
+// src/components/CookAI/Features/FeaturesSection.tsx
 import React from "react";
 import { ChefHat, Smartphone, Users, Star, Download, Play } from "lucide-react";
 import { ColorTheme } from "../../../themes/colors";
@@ -8,9 +9,10 @@ import { Feature } from "../../../types";
 
 interface FeaturesSectionProps {
     theme: ColorTheme;
+    isMobile?: boolean;
 }
 
-const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme }) => {
+const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme, isMobile = false }) => {
     const featuresStyles = getFeaturesStyles(theme);
     const commonStyles = getCommonStyles(theme);
 
@@ -54,7 +56,13 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme }) => {
     ];
 
     return (
-        <section id="features" style={featuresStyles.features}>
+        <section
+            id="features"
+            style={{
+                ...featuresStyles.features,
+                ...(isMobile ? featuresStyles.mobileFeatures : {}),
+            }}
+        >
             <div style={featuresStyles.featuresContainer}>
                 <h2 style={commonStyles.sectionTitle}>Powerful Features for Every Cook</h2>
                 <p style={commonStyles.sectionSubtitle}>
@@ -62,12 +70,18 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme }) => {
                     intelligent features designed for modern cooking.
                 </p>
 
-                <div style={featuresStyles.featuresGrid}>
+                <div
+                    style={{
+                        ...featuresStyles.featuresGrid,
+                        ...(isMobile ? featuresStyles.mobileFeaturesGrid : {}),
+                    }}
+                >
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}
                             feature={feature}
                             theme={theme}
+                            isMobile={isMobile}
                         />
                     ))}
                 </div>

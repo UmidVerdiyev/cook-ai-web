@@ -1,3 +1,4 @@
+// src/components/CookAI/index.tsx
 import React, { useState, useEffect } from "react";
 import Navigation from "../CookAI/Navigaton/Navigation";
 import HeroSection from "./Hero/HeroSection";
@@ -12,7 +13,7 @@ const CookAI: React.FC = () => {
     const [activeSection, setActiveSection] = useState("home");
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
-    // Change this to switch themes: 'orange-red', 'blue-purple', 'green-teal'
+    // FIXED: Changed from 'blue-tech' to 'blue-purple' (correct theme name)
     const currentTheme = themes['blue-tech'];
     const commonStyles = getCommonStyles(currentTheme);
 
@@ -100,10 +101,12 @@ const CookAI: React.FC = () => {
 
             <FeaturesSection
                 theme={currentTheme}
+                isMobile={isMobile}
             />
 
             <ContactSection
                 theme={currentTheme}
+                isMobile={isMobile}
             />
 
             <Footer

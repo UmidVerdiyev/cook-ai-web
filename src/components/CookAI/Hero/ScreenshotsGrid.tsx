@@ -12,7 +12,12 @@ interface ScreenshotsGridProps {
 const ScreenshotsGrid: React.FC<ScreenshotsGridProps> = ({ theme, isMobile }) => {
     const styles = getHeroStyles(theme);
 
-    const phonePositions = [
+    const phonePositions = isMobile ? [
+        styles.mobilePhonePosition1,
+        styles.mobilePhonePosition2,
+        styles.mobilePhonePosition3,
+        styles.mobilePhonePosition4,
+    ] : [
         styles.phonePosition1,
         styles.phonePosition2,
         styles.phonePosition3,

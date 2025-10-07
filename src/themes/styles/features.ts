@@ -1,3 +1,4 @@
+// src/themes/styles/features.ts
 import { CSSProperties } from 'react';
 import { ColorTheme } from '../colors';
 
@@ -50,5 +51,38 @@ export const getFeaturesStyles = (theme: ColorTheme): { [key: string]: CSSProper
     featureDesc: {
         color: theme.textSecondary,
         lineHeight: 1.6,
+    },
+
+    // MOBILE STYLES
+    mobileFeatures: {
+        padding: "3rem 1rem",
+    },
+
+    mobileFeaturesGrid: {
+        gridTemplateColumns: "1fr",
+        gap: "1.5rem",
+        maxWidth: "400px",
+        margin: "0 auto",
+    },
+
+    mobileFeatureCard: {
+        padding: "1.5rem",
+        textAlign: "center" as const,
+    },
+
+    mobileFeatureIcon: {
+        width: "48px",
+        height: "48px",
+        margin: "0 auto 1rem auto",
+    },
+
+    mobileFeatureTitle: {
+        fontSize: "1.125rem",
+        marginBottom: "0.75rem",
+    },
+
+    mobileFeatureDesc: {
+        fontSize: "0.95rem",
+        lineHeight: 1.5,
     },
 });

@@ -50,10 +50,12 @@ export const getNavigationStyles = (theme: ColorTheme): { [key: string]: CSSProp
         backgroundClip: "text",
     },
 
+    // FIXED: Desktop navigation - hidden on mobile
     navLinks: {
         display: "flex",
         alignItems: "center",
         gap: "0.5rem",
+        // Add media query equivalent through component logic
     },
 
     navLink: {
@@ -65,6 +67,8 @@ export const getNavigationStyles = (theme: ColorTheme): { [key: string]: CSSProp
         transition: "all 0.3s ease",
         color: theme.textSecondary,
         textDecoration: "none",
+        fontSize: "1rem",
+        whiteSpace: "nowrap" as const,
     },
 
     navLinkActive: {
@@ -83,25 +87,45 @@ export const getNavigationStyles = (theme: ColorTheme): { [key: string]: CSSProp
         cursor: "pointer",
         transition: "all 0.3s ease",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        fontSize: "0.9rem",
+        whiteSpace: "nowrap" as const,
     },
 
+    // FIXED: Mobile menu button
     mobileMenuBtn: {
-        display: "block",
         padding: "0.5rem",
         borderRadius: "8px",
         border: "none",
         background: "transparent",
         cursor: "pointer",
         transition: "background-color 0.3s ease",
+        color: theme.textSecondary,
     },
 
+    // FIXED: Mobile menu styling
     mobileMenu: {
-        display: "block" as const,
         background: "white",
         borderTop: "1px solid #e5e7eb",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
         padding: "1rem",
-        gap: "0.5rem",
+        display: "flex",
         flexDirection: "column" as const,
+        gap: "0.5rem",
+    },
+
+    // FIXED: Mobile menu download button
+    mobileDownloadBtn: {
+        width: "100%",
+        marginTop: "1rem",
+        marginLeft: 0,
+        background: theme.primaryGradient,
+        color: "white",
+        padding: "0.75rem 1.5rem",
+        borderRadius: "8px",
+        border: "none",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+        fontSize: "1rem",
     },
 });

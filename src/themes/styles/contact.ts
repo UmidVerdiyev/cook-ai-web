@@ -1,3 +1,4 @@
+// src/themes/styles/contact.ts
 import { CSSProperties } from 'react';
 import { ColorTheme } from '../colors';
 
@@ -106,5 +107,54 @@ export const getContactStyles = (theme: ColorTheme): { [key: string]: CSSPropert
         border: "none",
         cursor: "pointer",
         transition: "all 0.3s ease",
+    },
+
+    // MOBILE STYLES - ADD THESE
+    mobileContact: {
+        padding: "3rem 1rem",
+    },
+
+    mobileContactTitle: {
+        fontSize: "2rem",
+        marginBottom: "1rem",
+    },
+
+    mobileContactSubtitle: {
+        fontSize: "1.1rem",
+        padding: "0 1rem",
+        marginBottom: "2rem",
+    },
+
+    mobileContactGrid: {
+        gridTemplateColumns: "1fr",
+        gap: "1rem",
+        marginBottom: "2rem",
+    },
+
+    mobileContactCard: {
+        padding: "1.5rem",
+        textAlign: "center" as const,
+    },
+
+    mobileContactForm: {
+        padding: "1.5rem",
+        margin: "0 1rem",
+    },
+
+    mobileFormGrid: {
+        gridTemplateColumns: "1fr",
+        gap: "1rem",
+        marginBottom: "1rem",
+    },
+
+    mobileFormInput: {
+        padding: "0.875rem 1rem",
+        fontSize: "16px", // Prevents zoom on iOS
+    },
+
+    mobileFormTextarea: {
+        padding: "0.875rem 1rem",
+        fontSize: "16px", // Prevents zoom on iOS
+        marginBottom: "1rem",
     },
 });
