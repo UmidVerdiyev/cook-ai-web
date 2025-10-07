@@ -3,6 +3,9 @@ import { ColorTheme } from '../colors';
 
 export const getCommonStyles = (theme: ColorTheme): { [key: string]: CSSProperties } => ({
     container: {
+        display:'flex',
+        flexDirection: 'column',
+        width:'100%',
         minHeight: "100vh",
         background: theme.backgroundGradient,
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',

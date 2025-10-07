@@ -41,6 +41,7 @@ const PhoneFrame: React.FC<PhoneFrameProps> = ({ screenshot, theme, isMobile }) 
                     height: "16px",
                     display: "flex",
                     justifyContent: "space-between",
+                    gap:'15px',
                     alignItems: "center",
                     zIndex: 20,
                     fontSize: "10px",
@@ -55,12 +56,13 @@ const PhoneFrame: React.FC<PhoneFrameProps> = ({ screenshot, theme, isMobile }) 
 
                 {/* FIXED: Proper image container with better positioning */}
                 <div style={{
+                    height:'100%',
                     position: "absolute" as const,
-                    top: "30px", // Account for notch and status bar
+                    top: "0px", // Account for notch and status bar
                     left: "0",
                     right: "0",
                     bottom: "12px", // Account for home indicator
-                    borderRadius: "20px",
+                    borderRadius: "0 0 20px 20px",
                     overflow: "hidden" as const,
                     background: "#000", // Fallback background
                 }}>

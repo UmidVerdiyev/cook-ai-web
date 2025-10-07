@@ -1,8 +1,8 @@
 import { Screenshot } from '../types';
-import image1 from "../images/IMG_0437.png";
-import image2 from "../images/IMG_0438.png";
-import image3 from "../images/IMG_0439.png";
-import image4 from "../images/IMG_0440.png";
+import image1 from "../images/IMG_1336.png";
+import image2 from "../images/IMG_1337.png";
+import image3 from "../images/IMG_1334.png";
+import image4 from "../images/IMG_1335.png";
 
 export const screenshots: Screenshot[] = [
     { title: "Recipe Discovery", subtitle: "Find perfect recipes", image: image1 },

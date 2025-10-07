@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile }) => {
                 </div>
 
                 <h1 style={heroStyles.heroTitle}>
-                    Cook Smarter with{" "}
+                    Cook Smarter with
                     <span style={heroStyles.heroGradientText}>AI Magic</span>
                 </h1>
 

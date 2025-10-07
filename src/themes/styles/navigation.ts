@@ -4,6 +4,7 @@ import { ColorTheme } from '../colors';
 export const getNavigationStyles = (theme: ColorTheme): { [key: string]: CSSProperties } => ({
     nav: {
         position: "fixed" as const,
+        width: '100%',
         top: 0,
         left: 0,
         right: 0,
@@ -15,7 +16,7 @@ export const getNavigationStyles = (theme: ColorTheme): { [key: string]: CSSProp
     },
 
     navContainer: {
-        maxWidth: "1280px",
+        maxWidth: "100%",
         margin: "0 auto",
         padding: "0 1rem",
         display: "flex",
