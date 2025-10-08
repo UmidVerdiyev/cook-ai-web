@@ -16,6 +16,7 @@ export const getHeroStyles = (
     padding: "64px 1rem 0 1rem", 
     width: "100%",
     boxSizing: "border-box",
+    marginTop: "70px",
     // overflow: "hidden", 
   },
 

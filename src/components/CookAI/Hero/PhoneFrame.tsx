@@ -50,7 +50,7 @@ const PhoneFrame: React.FC<PhoneFrameProps> = ({ screenshot, theme, isMobile }) 
                     textShadow: "0 1px 2px rgba(0,0,0,0.5)",
                 }}>
                     <div>9:41</div>
-                    <div>●●●●●</div>
+                    {/*<div>●●●●●</div>*/}
                     <div>100%</div>
                 </div>
 
