@@ -1,7 +1,7 @@
 import { Screenshot } from '../types';
-import image1 from "../images/IMG_1336.png";
+import image1 from "../images/IMG_1638.jpg";
 import image2 from "../images/IMG_1337.png";
-import image3 from "../images/IMG_1334.png";
+import image3 from "../images/IMG_1639.jpg";
 import image4 from "../images/IMG_1335.png";
 
 export const screenshots: Screenshot[] = [
