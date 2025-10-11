@@ -1,6 +1,6 @@
 // src/components/CookAI/Features/FeaturesSection.tsx
 import React from "react";
-import {ChefHat, BarChart3, RefreshCcw, Apple, ListChecks, PlayCircle} from "lucide-react";
+import {Utensils, Sparkles, TrendingUp, Shuffle, Clock, Video, Leaf} from "lucide-react";
 import { ColorTheme } from "../../../themes/colors";
 import { getFeaturesStyles } from "../../../themes/styles/features";
 import { getCommonStyles } from "../../../themes/styles/common";
@@ -18,40 +18,40 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme, isMobile = fal
 
     const features: Feature[] = [
         {
-            icon: <Apple size={32} />,
-            title: "Personalized Diet Modes",
+            icon: <Leaf size={32} />,
+            title: "4 Personalized Diet Modes",
             description:
-                "Select your lifestyle — Gym, Vegan, Vegetarian, or Standard. Cook AI tailors every recipe and suggestion to your goals.",
+                "Choose Gym, Vegan, Vegetarian, or Standard. Every recipe adapts to your lifestyle and fitness goals automatically.",
         },
         {
-            icon: <ChefHat size={32} />,
-            title: "Smart Recipe Suggestions",
+            icon: <Sparkles size={32} />,
+            title: "AI Recipe Generator",
             description:
-                "Instantly discover recipes that fit your taste, available ingredients, and dietary preferences — all powered by AI.",
+                "Get instant recipes from ingredients you have. AI creates personalized dishes that match your taste and dietary preferences.",
         },
         {
-            icon: <BarChart3 size={32} />,
-            title: "Meal & Activity Insights",
+            icon: <TrendingUp size={32} />,
+            title: "Cooking Insights & Analytics",
             description:
-                "Track your cooking activity, favorite dishes, and progress over time. Understand your habits with visual insights.",
+                "Track your favorite recipes, cooking frequency, and dietary habits with beautiful visual charts and progress reports.",
         },
         {
-            icon: <RefreshCcw size={32} />,
-            title: "Ingredient Substitutions",
+            icon: <Shuffle size={32} />,
+            title: "Smart Ingredient Swaps",
             description:
-                "Missing something? Get instant AI-suggested ingredient swaps that preserve both flavor and nutrition.",
+                "Don't have an ingredient? Get instant AI substitutions that maintain taste and nutritional value perfectly.",
         },
         {
-            icon: <ListChecks size={32} />,
-            title: "Step-by-Step Guidance",
+            icon: <Clock size={32} />,
+            title: "Step-by-Step + Timers",
             description:
-                "Follow clear, interactive steps with timers and tips to achieve perfect results every time you cook.",
+                "Follow clear instructions with built-in timers and cooking tips. Perfect results, every time you cook.",
         },
         {
-            icon: <PlayCircle size={32} />,
-            title: "Video Tutorials",
+            icon: <Video size={32} />,
+            title: "YouTube Tutorial Links",
             description:
-                "Watch short videos for each recipe or ingredient — ideal for beginners learning new cooking techniques.",
+                "Learn with curated video tutorials for recipes and techniques. Perfect for visual learners and beginners.",
         },
     ];
 
