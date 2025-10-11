@@ -1,10 +1,14 @@
 // src/components/CookAI/index.tsx
 import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navigation from "../CookAI/Navigaton/Navigation";
 import HeroSection from "./Hero/HeroSection";
 import FeaturesSection from "./Features/FeaturesSection";
 import ContactSection from "./Contact/ContactSection";
 import Footer from "./Footer/Footer";
+import NotifyMeModal from "./Modals/NotifyMeModal";
+import PrivacyPolicy from "./LegalPages/PrivacyPolicy";
+import TermsOfUse from "./LegalPages/TermsOfUse";
 import { themes } from "../../themes/colors";
 import { getCommonStyles } from "../../themes/styles/common";
 
@@ -12,10 +16,19 @@ const CookAI: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+    const [isNotifyModalOpen, setIsNotifyModalOpen] = useState(false);
 
-    // FIXED: Changed from 'blue-tech' to 'blue-purple' (correct theme name)
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Theme configuration
     const currentTheme = themes['blue-tech'];
     const commonStyles = getCommonStyles(currentTheme);
+
+    // Determine current view based on URL
+    const currentView = location.pathname === '/privacy' ? 'privacy'
+        : location.pathname === '/terms' ? 'terms'
+            : 'main';
 
     useEffect(() => {
         // Add global CSS reset and animations
@@ -39,6 +52,10 @@ const CookAI: React.FC = () => {
       ::placeholder {
         color: rgba(255, 255, 255, 0.6);
       }
+      
+      html {
+        scroll-behavior: smooth;
+      }
     `;
         document.head.appendChild(style);
 
@@ -57,15 +74,35 @@ const CookAI: React.FC = () => {
         };
     }, []);
 
+    // Scroll to top when route changes
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }, [location.pathname]);
+
     const scrollToSection = (sectionId: string) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+        // If not on main page, navigate to home first
+        if (currentView !== 'main') {
+            navigate('/');
+            // Wait for navigation to complete, then scroll
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }, 100);
+        } else {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
         }
         setIsMenuOpen(false);
     };
 
     useEffect(() => {
+        // Only run scroll tracking when on main view
+        if (currentView !== 'main') return;
+
         const handleScroll = () => {
             const sections = ["home", "features", "contact"];
             const current = sections.find((section) => {
@@ -81,8 +118,30 @@ const CookAI: React.FC = () => {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [currentView]);
 
+    // Handle navigation to legal pages
+    const handleNavigateToLegal = (page: 'privacy' | 'terms') => {
+        navigate(`/${page}`);
+        setIsMenuOpen(false);
+    };
+
+    // Handle back to main app
+    const handleBackToMain = () => {
+        navigate('/');
+    };
+
+    // Render Privacy Policy page
+    if (currentView === 'privacy') {
+        return <PrivacyPolicy theme={currentTheme} onBack={handleBackToMain} />;
+    }
+
+    // Render Terms of Use page
+    if (currentView === 'terms') {
+        return <TermsOfUse theme={currentTheme} onBack={handleBackToMain} />;
+    }
+
+    // Render main app
     return (
         <div style={commonStyles.container}>
             <Navigation
@@ -92,12 +151,14 @@ const CookAI: React.FC = () => {
                 isMobile={isMobile}
                 onMenuToggle={() => setIsMenuOpen(!isMenuOpen)}
                 onNavigate={scrollToSection}
+                onNotifyClick={() => setIsNotifyModalOpen(true)}
             />
 
             <HeroSection
                 theme={currentTheme}
                 isMobile={isMobile}
-            />
+                onNotifyClick={() => setIsNotifyModalOpen(true)}
+             />
 
             <FeaturesSection
                 theme={currentTheme}
@@ -111,6 +172,13 @@ const CookAI: React.FC = () => {
 
             <Footer
                 theme={currentTheme}
+                onNavigateToLegal={handleNavigateToLegal}
+            />
+
+            <NotifyMeModal
+                theme={currentTheme}
+                isOpen={isNotifyModalOpen}
+                onClose={() => setIsNotifyModalOpen(false)}
             />
         </div>
     );

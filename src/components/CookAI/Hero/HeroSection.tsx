@@ -1,5 +1,6 @@
+// src/components/CookAI/Hero/HeroSection.tsx
 import React from "react";
-import { Star, Download, ArrowRight } from "lucide-react";
+import { Star, Bell, ArrowRight } from "lucide-react";
 import { ColorTheme } from "../../../themes/colors";
 import { getHeroStyles } from "../../../themes/styles/hero";
 import { getCommonStyles } from "../../../themes/styles/common";
@@ -8,9 +9,10 @@ import ScreenshotsGrid from "./ScreenshotsGrid";
 interface HeroSectionProps {
     theme: ColorTheme;
     isMobile: boolean;
+    onNotifyClick: () => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile, onNotifyClick }) => {
     const heroStyles = getHeroStyles(theme);
     const commonStyles = getCommonStyles(theme);
 
@@ -31,8 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile }) => {
 
                 <h1 style={heroStyles.heroTitle}>
                     <span style={heroStyles.heroGradientText}>Cook AI </span>
-                     — Your Personal Kitchen Assistant
-
+                    — Your Personal Kitchen Assistant
                 </h1>
 
                 <p style={heroStyles.heroSubtitle}>
@@ -44,6 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile }) => {
 
                 <div style={heroStyles.heroButtons}>
                     <button
+                        onClick={onNotifyClick}
                         style={commonStyles.primaryBtn}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.transform = "scale(1.05)";
@@ -54,8 +56,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile }) => {
                             e.currentTarget.style.boxShadow = "0 10px 15px rgba(0, 0, 0, 0.1)";
                         }}
                     >
-                        <Download size={20} />
-                        Download Now
+                        <Bell size={20} />
+                        Notify Me at Launch
                         <ArrowRight size={20} />
                     </button>
                 </div>

@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
-import { ColorTheme } from '../colors';
+import {CSSProperties} from 'react';
+import {ColorTheme} from '../colors';
 
 export const getFooterStyles = (theme: ColorTheme): { [key: string]: CSSProperties } => ({
     footer: {
@@ -36,4 +36,24 @@ export const getFooterStyles = (theme: ColorTheme): { [key: string]: CSSProperti
         WebkitTextFillColor: "transparent",
         backgroundClip: "text",
     },
+    legalLinks: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "0.5rem",
+        marginTop: "0.5rem",
+        fontSize: "0.85rem",
+        color: theme.textSecondary,
+    },
+
+    legalLink: {
+        color: theme.textSecondary,
+        textDecoration: "none",
+        transition: "color 0.3s ease",
+    },
+
+    separator: {
+        opacity: 0.5,
+    },
+
 });

@@ -5,14 +5,22 @@ import { getFooterStyles } from "../../../themes/styles/footer";
 
 interface FooterProps {
     theme: ColorTheme;
+    onNavigateToLegal?: (page: 'privacy' | 'terms') => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ theme }) => {
+const Footer: React.FC<FooterProps> = ({ theme, onNavigateToLegal }) => {
     const styles = getFooterStyles(theme);
+
+    const handleLegalClick = (page: 'privacy' | 'terms') => {
+        if (onNavigateToLegal) {
+            onNavigateToLegal(page);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     return (
         <footer style={styles.footer}>
-            {/* ✅ Updated Logo Section */}
+            {/* 🔹 Logo Section */}
             <div style={styles.footerLogo}>
                 <div style={styles.footerLogoIcon}>
                     <img
@@ -30,10 +38,40 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
                 <span style={styles.footerLogoText}>Cook AI</span>
             </div>
 
-            {/* ✅ Footer Text */}
+            {/* 🔹 Text + Legal Links */}
             <p style={styles.footerText}>
                 © 2025 <strong>Cook AI</strong>. All rights reserved. Made with ❤️ for food lovers.
             </p>
+
+            <div style={styles.legalLinks}>
+                <button
+                    onClick={() => handleLegalClick('privacy')}
+                    style={{
+                        ...styles.legalLink,
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        cursor: 'pointer',
+                        font: 'inherit'
+                    }}
+                >
+                    Privacy Policy
+                </button>
+                <span style={styles.separator}>·</span>
+                <button
+                    onClick={() => handleLegalClick('terms')}
+                    style={{
+                        ...styles.legalLink,
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        cursor: 'pointer',
+                        font: 'inherit'
+                    }}
+                >
+                    Terms of Use
+                </button>
+            </div>
         </footer>
     );
 };
