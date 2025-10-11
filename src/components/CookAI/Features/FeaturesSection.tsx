@@ -1,6 +1,6 @@
 // src/components/CookAI/Features/FeaturesSection.tsx
 import React from "react";
-import { ChefHat, Smartphone, Users, Star, Download, Play } from "lucide-react";
+import {ChefHat, BarChart3, RefreshCcw, Apple, ListChecks, PlayCircle} from "lucide-react";
 import { ColorTheme } from "../../../themes/colors";
 import { getFeaturesStyles } from "../../../themes/styles/features";
 import { getCommonStyles } from "../../../themes/styles/common";
@@ -18,40 +18,40 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme, isMobile = fal
 
     const features: Feature[] = [
         {
+            icon: <Apple size={32} />,
+            title: "Personalized Diet Modes",
+            description:
+                "Select your lifestyle — Gym, Vegan, Vegetarian, or Standard. Cook AI tailors every recipe and suggestion to your goals.",
+        },
+        {
             icon: <ChefHat size={32} />,
             title: "Smart Recipe Suggestions",
             description:
-                "Get personalized recipe recommendations based on your preferences, dietary restrictions, and available ingredients.",
+                "Instantly discover recipes that fit your taste, available ingredients, and dietary preferences — all powered by AI.",
         },
         {
-            icon: <Smartphone size={32} />,
-            title: "Meal Planning Assistant",
+            icon: <BarChart3 size={32} />,
+            title: "Meal & Activity Insights",
             description:
-                "Plan your weekly meals effortlessly with AI-powered suggestions that balance nutrition and taste.",
+                "Track your cooking activity, favorite dishes, and progress over time. Understand your habits with visual insights.",
         },
         {
-            icon: <Users size={32} />,
-            title: "Cooking Instructions",
+            icon: <RefreshCcw size={32} />,
+            title: "Ingredient Substitutions",
             description:
-                "Step-by-step guidance with smart timers and cooking tips to ensure perfect results every time.",
+                "Missing something? Get instant AI-suggested ingredient swaps that preserve both flavor and nutrition.",
         },
         {
-            icon: <Star size={32} />,
-            title: "Ingredient Substitution",
+            icon: <ListChecks size={32} />,
+            title: "Step-by-Step Guidance",
             description:
-                "Missing an ingredient? Get instant smart substitutions that maintain flavor and texture.",
+                "Follow clear, interactive steps with timers and tips to achieve perfect results every time you cook.",
         },
         {
-            icon: <Download size={32} />,
-            title: "Offline Access",
-            description:
-                "Access your favorite recipes and cooking guides even without an internet connection.",
-        },
-        {
-            icon: <Play size={32} />,
+            icon: <PlayCircle size={32} />,
             title: "Video Tutorials",
             description:
-                "Learn cooking techniques with integrated video tutorials and visual cooking guides.",
+                "Watch short videos for each recipe or ingredient — ideal for beginners learning new cooking techniques.",
         },
     ];
 
@@ -64,10 +64,9 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ theme, isMobile = fal
             }}
         >
             <div style={featuresStyles.featuresContainer}>
-                <h2 style={commonStyles.sectionTitle}>Powerful Features for Every Cook</h2>
+                <h2 style={commonStyles.sectionTitle}>Smarter Cooking, Your Way</h2>
                 <p style={commonStyles.sectionSubtitle}>
-                    Discover how Cook AI revolutionizes your kitchen experience with
-                    intelligent features designed for modern cooking.
+                    From personalized diets to ingredient management, Cook AI adapts to you — not the other way around.
                 </p>
 
                 <div

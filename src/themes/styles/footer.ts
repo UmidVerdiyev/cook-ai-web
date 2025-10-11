@@ -18,8 +18,8 @@ export const getFooterStyles = (theme: ColorTheme): { [key: string]: CSSProperti
     },
 
     footerLogoIcon: {
-        width: "32px",
-        height: "32px",
+        width: "42px",
+        height: "42px",
         background: theme.logoGradient,
         borderRadius: "8px",
         display: "flex",

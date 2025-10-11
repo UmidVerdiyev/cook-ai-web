@@ -32,8 +32,8 @@ export const getNavigationStyles = (theme: ColorTheme): { [key: string]: CSSProp
     },
 
     logoIcon: {
-        width: "40px",
-        height: "40px",
+        width: "52px",
+        height: "52px",
         background: theme.logoGradient,
         borderRadius: "12px",
         display: "flex",

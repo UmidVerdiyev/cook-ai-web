@@ -30,13 +30,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ theme, isMobile }) => {
                 </div>
 
                 <h1 style={heroStyles.heroTitle}>
-                    Cook Smarter with
-                    <span style={heroStyles.heroGradientText}>AI Magic</span>
+                    <span style={heroStyles.heroGradientText}>Cook AI </span>
+                     — Your Personal Kitchen Assistant
+
                 </h1>
 
                 <p style={heroStyles.heroSubtitle}>
-                    Transform your cooking experience with intelligent recipe suggestions,
-                    meal planning, and personalized culinary guidance powered by advanced AI.
+                    Choose your cooking style —
+                    <span style={heroStyles.statNumber}> Gym, Vegan, Vegetarian, or Standard </span>
+                    — and let AI suggest recipes that fit your lifestyle.
+                    Cook AI helps you plan meals, discover dishes, and make the most of your ingredients effortlessly.
                 </p>
 
                 <div style={heroStyles.heroButtons}>

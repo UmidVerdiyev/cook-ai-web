@@ -3,7 +3,6 @@ import { ChefHat, Image, Menu, X } from "lucide-react";
 import { ColorTheme } from "../../../themes/colors";
 import { getNavigationStyles } from "../../../themes/styles/navigation";
 import NavLink from "./NavLink";
-import CookAiLogo from "../../../images/log.png";
 
 interface NavigationProps {
   theme: ColorTheme;
@@ -30,20 +29,21 @@ const Navigation: React.FC<NavigationProps> = ({
         <div style={styles.logo}>
           <div style={styles.logoIcon}>
             <img
-              src={CookAiLogo}
-              alt="Cook AI Logo"
-              style={{
-                width: "48px",
-                height: "48px",
-                objectFit: "contain",
-                borderRadius: "12px",
-              }}
+                src="/images/logo.svg"
+                alt="Cook AI Logo"
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  objectFit: "contain",
+                  borderRadius: "12px",
+                }}
             />
+
           </div>
           <span style={styles.logoText}>Cook AI</span>
         </div>
         {/* Desktop Navigation */}
-        <div style={!isMobile ? styles.navLinks : { display: "none" }}>
+        <div style={!isMobile ? styles.navLinks : {display: "none" }}>
           <NavLink
             href="#home"
             isActive={activeSection === "home"}
